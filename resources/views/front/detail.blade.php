@@ -3,14 +3,13 @@
 @section('content')
 <div class="container" style="padding-top: 2rem;">
 	<div class="product-box product-box-primary">
-                <div class="product-box-content">
-                    <div class="row">
+                <div class="">
+                    <div class="row" >
                         <div class="col-md-5">
                         	<?php $image = unserialize($product->images) ?>
                             <?php $product_color = unserialize($product->product_color) ?>
                             <figure class="img-product" >
                                 <img src="{{ url('images/'.$product->partners_id, $image[0]) }}" alt="product" height="536" width="467">
-                                
                             </figure>
                             <div class="featue-slide supermartket-owl-carousel" data-number="3" data-margin="15" data-navcontrol="yes">
                             	@foreach($image as $img)

@@ -70,7 +70,7 @@
                                 <li class="tab-list-item" style="font-weight: bold;"><a href="">{{$subcat->name}}</a></li>
                                 @foreach($sub_subcategory as $sub_sub)
                                     @if($sub_sub->subcategory_id == $subcat->id)
-                                        <li class="tab-list-item" style="padding-left: 10px;"><a href="{{ route('sub_subcategory', $subcat->id) }}">{{$sub_sub->name}}</a></li>
+                                        <li class="tab-list-item" style="padding-left: 10px;"><a href="{{ route('sub_subcategory', $sub_sub->id) }}">{{$sub_sub->name}}</a></li>
                                     @endif
                                 @endforeach
                             @endif
@@ -85,6 +85,7 @@
                         <div class="tab-pane active" id="1sm">
                             <div class="unclassed">
                                 <div class="tab-pane-slide">
+                                    
                                     @foreach($products as $product)
                                         @if($product->category == $categor->id)
                                         <?php $image = unserialize($product->images) ?>
@@ -105,11 +106,47 @@
                                                     </div>
                                                 </div>
                                                 <ul class="product-item-actions">
-                                                    <li><a href="#"><i class="flaticon-like"></i></a></li>
-                                                    <li><a href="{{ route('add', $product->id) }}"><i class="flaticon-commerce"></i></a></li>
+                                                    <li 
+                                                        <?php 
+                                                            if (Auth::check()) {   
+                                                                foreach ($wishlist as $wish) {
+                                                                    if ($wish->product_id == $product->id){
+                                                                          echo 'class="icon_active"';
+                                                                    }      
+                                                                }
+                                                            }
+                                                        ?>
+                                                        ><a href="{{ route('addwish', $product->id ) }}"  
+                                                                <?php
+                                                                    if(!Auth::check()){
+                                                                        echo 'data-toggle="modal"  data-target="#modalAuth"';
+                                                                    } 
+                                                                    if (Auth::check()) {   
+                                                                        foreach ($wishlist as $wish) {
+                                                                            if ($wish->product_id == $product->id){
+                                                                                  echo 'class="disabled"';
+                                                                            }      
+                                                                        }
+                                                                    }
+                                                                ?>
+                                                            ><i class="flaticon-like"
+                                                            <?php if(!Auth::check()){
+                                                                echo 'data-toggle="modal"  data-target="#modalAuth"';
+                                                            } ?>
+                                                            ></i></a>
+                                                    </li>
+                                                    <li><a href="{{ route('add', $product->id) }}" 
+                                                        <?php 
+                                                        if(!Auth::check()){
+                                                            echo 'data-toggle="modal"  data-target="#modalAuth"';
+                                                        } 
+                                                        ?>
+                                                        ><i class="flaticon-commerce"></i></a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </a>
+
                                         @endif
                                     @endforeach
                                 </div>

@@ -27,20 +27,27 @@ class CartController extends Controller{
     	$subcategory = SubCategory::all();
     	$sub_subcategory = Sub_SubCategory::all();
     	$products = Products::all();
+    	$countcart = Cart::where('user_id', Auth::user()->id)->get();
     	// $cartitem = Cart::all()->groupBy('product_id');
     	$cartitem = DB::table('cart')
                  ->select('product_id', 'user_id', DB::raw('count(*) as total'))
                  ->groupBy('product_id')
                  ->groupBy('user_id')
                  ->get();
-                 
-    	return view('front.cart', compact('category', 'subcategory', 'sub_subcategory','products','cartitem'));
+
+    	return view('front.cart', compact('category', 'subcategory', 'sub_subcategory','products','cartitem','countcart'));
     }
     public function destroy($id){
     	$cartitem = Cart::where('user_id', $id);
     	
     	$cartitem->delete();
     	
+    	return back();
+    }
+
+    public function delete($id){
+    	$cartitem = Cart::where('product_id', $id)->where('user_id', Auth::user()->id);
+    	$cartitem->delete();
     	return back();
     }
 }

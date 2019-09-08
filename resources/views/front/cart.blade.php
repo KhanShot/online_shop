@@ -4,8 +4,9 @@
 <div class="main-content container">
     <h4 class="title-page">Корзина</h4>
     <div class="shop-table-content container">
-        <form method="post" action="#" class="shoping-form">
-            <a class="button button-check-out" href="#">Заказать</a>
+        <form method="post" action="{{route('makeOrder')}}" class="shoping-form" enctype="multipart/form-data">
+            {{ csrf_field() }}
+            <input class="button button-check-out" type="submit">
             <div class="div-table-cart">
                 <table class="shop_table cart">
                     <thead>
@@ -42,26 +43,30 @@
 		                            </td>
 		                            <td class="product-quantity" data-title="Qty">
 		                                <div class="quantity buttons_added">
-		                                    <input type="text" class="input-text qty text"  title="Qty" value="{{$item->total}}" name="qty">
+		                                    <input type="text" class="input-text qty text"  title="Qty" name="qty" value="{{$item->total}}" name="qty">
 		                                </div>
 		                            </td>
 		                            <td class="product-subtotal" data-title="Subtotal">
 		                                <span class="amount">$168.00</span>
 		                            </td>
 		                            <td class="product-remove" data-title="Remove">
-		                                <a title="Remove this item" class="remove" href="#">×</a>
+		                                <a title="Remove this item" class="remove" href="{{ route('delete', $product->id) }}">×</a>
 		                            </td>
 		                        </tr>
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                <input type="hidden" name="product_id[]" value="{{ $product->id }}">
+                                <input type="hidden" name="partners_id[]" value="{{ $product->partners_id }}">
 		                    @endif
 		                    @endif
                         @endforeach
                         @endforeach
                     </tbody>
                 </table>
+
                 <div class="button-cart">
-                    <a class="button button-check-out" href="{{route('deletecart', Auth::user()->id )}}">Clear Shoping Cart</a>
-                    <a class="button button-check-out" href="#">Update Shoping Cart</a>
-                    <a class="button button-check-out" href="#">Continue Shoping</a>
+                    <a class="button button-check-out" href="{{route('deletecart', Auth::user()->id )}}">Очистить корзину</a>
+                    <a class="button button-check-out" href="#">Обновить</a>
+                    
                 </div>
             </div>
 

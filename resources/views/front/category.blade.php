@@ -59,6 +59,7 @@
                             </div>
                         </div>
                         <div class="products-categories">
+                        	@foreach($products as $product)
                             <div class="product-box">
                                 <div class="product-box-content">
                                     <figure class="img-product">
@@ -66,13 +67,11 @@
                                         <a href="#" class="flaticon-search"></a>
                                     </figure>
                                     <div class="product-box-text">
-                                        <a href="#" class="product-name">Men's Skagen Watch</a>
-                                        <a href="#" class="write">Write Your Review</a>
-                                        <p class="product-cost">$200.00</p>
-                                        <p class="desc-product">Cum altera mandamus in, mea verear disputationi et.
-                                            Vel regione discere ut, legere expetenda ut eos. In nam nibh invenire similique.
-                                            Atqui mollis ea his, ius graecis accommodare te. No eam tota nostrum cotidieque.
-                                        </p>
+                                        <a href="#" class="product-name">{{$product->name}}</a>
+                                        <div class="dflex justifybetween">
+                                        	<p class="product-cost">$200.00</p> <small><p>Наличие:{{$product->status}}</p></small>
+                                        </div>
+                                        <p class="desc-product">{{ $product->product_info }}</p>
                                         <div class="product-box-bottom">
                                             <a href="#" class="add-to-cart"><i class="flaticon-commerce"></i>Add To Cart</a>
                                             <a href="#" class="wishlist"><i class="flaticon-like"></i></a>
@@ -82,32 +81,11 @@
 
                                 </div>
                             </div>
-                            <div class="product-box">
-                                <div class="product-box-content">
-                                    <figure class="img-product">
-                                        <img src="{{ asset ('images/p2.jpg')}}" alt="product" height="207" width="175">
-                                        <a href="#" class="flaticon-search"></a>
-                                    </figure>
-                                    <div class="product-box-text">
-                                        <a href="#" class="product-name">Men's Skagen Watch</a>
-                                        <a href="#" class="write">Write Your Review</a>
-                                        <p class="product-cost">$200.00</p>
-                                        <p class="desc-product">Cum altera mandamus in, mea verear disputationi et.
-                                            Vel regione discere ut, legere expetenda ut eos. In nam nibh invenire similique.
-                                            Atqui mollis ea his, ius graecis accommodare te. No eam tota nostrum cotidieque.
-                                        </p>
-                                        <div class="product-box-bottom">
-                                            <a href="#" class="add-to-cart"><i class="flaticon-commerce"></i>Add To Cart</a>
-                                            <a href="#" class="wishlist"><i class="flaticon-like"></i></a>
-                                            <a href="#" class="refresh-product"><i class="flaticon-arrows"></i></a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <
+                            @endforeach
+                         
+                          
+                           
                         </div>
-                    </div>
                         <div class="panel-categories">
                             <div class="row">
                                 <div class="col-md-3">
@@ -269,17 +247,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="tag-sidebar">
-                            <div class="sidebar-title-section">Popular Tags</div>
-                            <ul class="tag-list-sidebar">
-                                <li class="tag-sidebar-item"><a href="#">Mobile</a></li>
-                                <li class="tag-sidebar-item"><a href="#">Adss</a></li>
-                                <li class="tag-sidebar-item"><a href="#">Masem</a></li>
-                                <li class="tag-sidebar-item"><a href="#">Mudd</a></li>
-                                <li class="tag-sidebar-item"><a href="#">Atimo</a></li>
-                            </ul>
-                            <a href="#" class="view-all-tags">View All Tags<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

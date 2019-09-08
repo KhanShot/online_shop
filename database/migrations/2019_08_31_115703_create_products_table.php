@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('subcategory')->nullable();
             $table->string('sub_subcategory')->nullable();
             $table->string('product_type')->nullable();
+            $table->string('product_price')->nullable();
             $table->string('madefrom')->nullable();
             $table->string('product_brand')->nullable();
             $table->string('product_color')->nullable();

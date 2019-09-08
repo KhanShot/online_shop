@@ -17,7 +17,6 @@
             <div class="header-mid-left">
                 @if(Auth::check())
                     <p class="wellcome-to">Добро пожаловать в Tasbaqa Market, {{Auth::user()->name}}</p>
-
                 
                     <a href="{{route('logout')}}">Выйти</a>
                 @else
@@ -33,7 +32,7 @@
             <div class="header-mid-right">
                 @if(Auth::check())
                 <div class="header-mid-right-content first" style="margin-left: 80px;">
-                    <a href="{{  action('UsersController@profile', Auth::user()->id)}}">Мой профиль</a>
+                    <a href="{{  action('FrontController@userprofile', Auth::user()->id)}}">Мой профиль</a>
                 </div>
                 @endif
                 <div class="header-mid-right-content">
@@ -174,7 +173,11 @@
 
             <div class="header-bottom-right">
                 <div class="header-bottom-right-content">
-                    <a href="#">
+                    <a href="{{route('wishlist')}}"
+                    <?php if(!Auth::check()){
+                        echo 'data-toggle="modal"  data-target="#modalAuth"';
+                    } ?>
+                    >
                         <i class="flaticon-like"></i>
                         Избранные
                     </a>
@@ -190,7 +193,11 @@
                             <i class="flaticon-commerce"></i>
                             Корзина
                             <i class="fa fa-caret-down" aria-hidden="true"></i>
-                            <p class="cart-amount">{{ $countcart->count() }}</p>
+                                @if(Auth::check())
+                                <p class="cart-amount">
+                                {{ $countcart->count() }}
+                                </p>
+                                @endif
                         </a>
                     </div>
                     <div class="cart-hover">
@@ -203,7 +210,7 @@
                                 @foreach($products as $product)
                                 @if($product->id == $item->product_id)
                                     <li class="hover-cart-item" style="padding-bottom: 10px;">
-                                        <a href="#" class="img-hover-cart">
+                                        <a href="{{ route('delete', $product->id) }}" class="img-hover-cart">
                                             <img src="{{asset ('images/img-hover-cart.jpg')}}" alt="img-hover-cart" width="75" height="80">
                                             <span class="delete-product-hover-cart"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
                                         </a>

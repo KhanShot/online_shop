@@ -17,6 +17,17 @@ Route::get('/category/{id}', 'FrontController@categories')->name('sub_subcategor
 Route::get('/cartadd/{id}', 'CartController@add')->name('add');
 Route::get('/cart', 'CartController@index')->name('cart');
 Route::get('/cart/delete/{id}', 'CartController@destroy')->name('deletecart');
+Route::get('/cart/deletesingle/{id}', 'CartController@delete')->name('delete');
+Route::get('/userprofile/{id}', 'FrontController@userprofile');
+
+Route::get('/wishlist/add/{id}', 'WishlistController@store')->name('addwish');
+Route::get('/cart/deletesinglewish/{id}', 'WishlistController@delete')->name('deletewish');
+
+Route::get('/wishlist', 'WishlistController@index')->name('wishlist');
+
+Route::post('/orders/made', 'OrdersController@store')->name('makeOrder');
+
+
 
 Route::get('partners/enterpage', function () {
     return view('partners.enterpage');

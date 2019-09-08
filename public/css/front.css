@@ -5,3 +5,20 @@
 	padding-left: 15px;
 	padding-right: 15px;
 }
+.product-box-content{
+	width: 207px;
+}
+.dflex{
+	display: flex;
+}
+.justifybetween{
+	justify-content: space-between;
+}
+
+.icon_active{
+	background-color: #52bda9!important;
+}
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+}
