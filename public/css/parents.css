@@ -1,0 +1,127 @@
+.bg-ano{
+	background-color: #80E8A4;
+	height: 97vh; 
+	width: 95%;
+}
+.content{
+	font-family: "Arial", Times, serif;
+	font-weight: 500;
+	font-size: 18px;
+	display: flex;
+	justify-content: center;
+}
+.contain{
+	min-height: 500px;
+}
+.text{
+
+	color: orange;
+}
+.text-center,.span{
+	font-weight: 700;
+}
+.bg-text{
+	background-color: orange;
+	color:white;
+	font-weight: 700;	
+	font-size: 14px;
+	text-decoration: none;
+	margin-left: 120px;
+}
+.enter-text{
+	color: #333333;
+}
+.bg-gray{
+	background-color: #F1ECFF;
+	height: 97vh;
+	width: 95%;
+}
+.enter_block1{
+	padding: 0 !important;
+
+}
+.enter_block{
+	background-color: white;
+	padding-bottom: 2rem;
+	padding-top: 2rem;
+}
+.text_enter{
+	font-size: 20px;
+}
+.btn_orange_submit{
+	padding-right: 85px;
+	padding-left: 85px;
+	background-color: orange;
+
+}
+.enter_input{
+	border: 1px solid  green;
+}
+.text_enter_password{
+	font-weight: 400;
+	width: 45%;
+}
+.text_create_enter{
+	font-weight: normal;
+	text-align: left;
+	font-size: 12px;
+}
+.border-green{
+	color: green;
+	border: 2px solid green;
+}
+.input_label_small{
+	font-weight: normal;
+	font-size: 11px;
+}
+.enterpage_container{
+	
+}
+.enterpage_inner_container{
+	height: 96vh;
+	width: 95%;
+	border: 1px solid gray;
+	border-radius: 2px;
+}
+.section_container{
+	width: 100%;
+}
+.section{
+	width: 50%;
+}
+.asdasd{
+	display: flex;
+	align-items: flex-start;
+}
+.normal_text{
+	font-weight: normal;
+	line-height: 1.4;
+	font-size: 13px;
+	text-align: left;
+}
+.text_green{
+	color: green;
+}
+.text_bold{
+	font-weight: bold;
+}
+.text_container{
+	height: 100%;
+}
+.btn_create{
+	padding-right: 70px;
+	padding-left: 70px;
+	background-color:  #80E8A4;
+	color: black;
+}
+.btn_create:hover{
+	background-color: #8CFF96;
+}
+.form_container{
+	width: 400px;
+}
+.text_align_left{
+	font-size: 13px;
+	font-weight: normal;
+	text-align: left;
+}

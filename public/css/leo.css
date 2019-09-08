@@ -1,0 +1,79 @@
+.top-banner{
+    margin: 0;
+    padding: 0;
+}
+.m1 {
+    color: black;
+    line-height: 1.3em;
+    text-align: center;
+    background-color: #ffff;
+}
+.modalReg{
+    width: 350px;
+}
+@media (max-width: 330px) {
+    .modalReg {
+        width: 300px;
+        font-size: 12px;
+        line-height: 1.2em;
+    }
+}
+@media (min-width: 410px) {
+    .modalReg {
+        width: 390px;
+        font-size: 12px;
+        line-height: 1.2em;
+    }
+}
+.go{
+    width: 200px;
+    height: 30px;
+    border: 3px solid black;
+    border-radius: 7px;
+    margin: auto;
+
+}
+.reg-forms{
+    margin-top: 20px;
+}
+.telo-modal{
+    width: 100%;
+    margin: 0 auto;
+    font-size: 14px;
+}
+.form-group > label{
+    margin-top: 0px;
+    margin-bottom: 3px;
+}
+.agree{
+    float: left;
+    font-size: 13px;
+    margin-top: -30px;
+}
+.btn-reg{
+    width: 100%;
+    background: #52bdb1;
+    margin-top: 0px;
+}
+.btn-regd{
+    width: 100%;
+    background: #52bdb1;
+    margin-top: 0px;
+}
+.form-group>input{
+    margin-top: -10px;
+    border-radius: 10px;
+    font-size: 13px;
+}
+
+/*PARTNER LIST*/
+.left-block{
+    color: black;
+}
+.p-g{
+    margin-bottom: 13px;
+}
+.p-g>label,p{
+    margin-bottom: 0px;
+    color: black;
+}
